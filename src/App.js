@@ -1,7 +1,12 @@
 import './App.css';
-import './components/Todos.js';
 
-function App() {
+import { Todos } from './components/Todos';
+
+export function App() {
+  return <Todos />
+};
+
+/*function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
@@ -13,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
