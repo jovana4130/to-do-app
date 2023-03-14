@@ -28,7 +28,7 @@ export const Todos = () => {
   }, []);
 
   useEffect(() => {
-    const completedTodos = todos.every((item) => item.completed).length;
+    const completedTodos = todos.filter((item) => item.completed).length;
     if (!completedTodos || !todos.length) return setPercentage(0);
     const percentage = (completedTodos / todos.length) * 100;
     setPercentage(percentage);
