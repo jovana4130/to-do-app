@@ -3,11 +3,11 @@ import './Todos.css';
 
 export const Todos = () => {
   const [todos, setTodos] = useState([]);
-  const [isAllCompleted, setIsAllCompleted] = useState(false);
+  const [isAllCompleted, completedTodos] = useState(false);
   const [percentage, setPercentage] = useState(0);
 
   const onChangeIsComplete = (id) => {
-    const updatedIsComplete = todos.map((item) => {
+    const updatedTodos = todos.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -28,7 +28,7 @@ export const Todos = () => {
   }, []);
 
   useEffect(() => {
-    const isAllCompleted = todos.every((item) => item.completed).length;
+    const completedTodos = todos.every((item) => item.completed).length;
     if (!completedTodos || !todos.length) return setPercentage(0);
     const percentage = (completedTodos / todos.length) * 100;
     setPercentage(percentage);
@@ -36,7 +36,7 @@ export const Todos = () => {
 
   return (
     <div className="todos-wrapper">
-      <h1>Todos</h1>
+      <h1>TODOS</h1>
       <h4>Procenat % uradjenih taskova: {percentage.toFixed(0)}%</h4>
       {todos.map((item) => {
         return (
